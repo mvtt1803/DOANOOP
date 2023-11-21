@@ -51,12 +51,12 @@ public class list implements function, read {
     @Override
     public void Xoa() {
         System.out.println("Nhap ma khach hang can xoa: ");
-        String maNhanVien = sc.nextLine();
+        String maKH = sc.nextLine();
 
         int index = -1;
         for (int i = 0; i < soLuongKhachHang; i++) {
             KH kh = danhSachKhachHang[i];
-            if (kh != null && kh.getMaKH().equals(maNhanVien)) {
+            if (kh != null && kh.getMaKH().equals(maKH)) {
                 index = i;
                 break;
             }
@@ -77,10 +77,10 @@ public class list implements function, read {
     @Override
     public void Sua() {
         System.out.println("Nhap ma khach hang can sua: ");
-        String maNhanVien = sc.nextLine();
+        String maKH = sc.nextLine();
 
         for (KH kh : danhSachKhachHang) {
-            if (kh != null && kh.getMaKH().equals(maNhanVien)) {
+            if (kh != null && kh.getMaKH().equals(maKH)) {
                 kh.input();
                 System.out.println("Sua khach hang thanh cong!");
                 return;
@@ -106,15 +106,15 @@ public class list implements function, read {
     @Override
     public void capNhat() {
         System.out.println("Nhap ma khach hang can cap nhat: ");
-        String maNhanVien = sc.nextLine();
+        String maKH = sc.nextLine();
 
         for (KH kh : danhSachKhachHang) {
-            if (kh != null && kh.getMaKH().equals(maNhanVien)) {
+            if (kh != null && kh.getMaKH().equals(maKH)) {
                 File dataFolder = new File("data");
                 if (!dataFolder.exists()) {
                     dataFolder.mkdirs(); 
                 }
-                kh.ghiFile("data/" + maNhanVien + ".dat");
+                kh.ghiFile("data/" + maKH + ".dat");
                 System.out.println("Cap nhat khach hang thanh cong!");
                 return;
             }
@@ -177,40 +177,4 @@ public class list implements function, read {
         
         dsKhachHang.ghiFile("danhsachkhachhang.text");
     }
-
-    default void chonChucNang() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Nhap so tu 1 den 6 de thuc hien:");
-		System.out.println("1. Them khach hang");
-		System.out.println("2. Xoa khach hang");
-		System.out.println("3. Sua thong tin khach hang");
-		System.out.println("4. Tim kiem khach hang");
-		System.out.println("5. Cap nhat thong tin khach hang");
-		System.out.println("6. Hien thi danh sach khach hang");
-		int choice = sc.nextInt();
-
-		switch (choice) {
-			case 1:
-				Them();
-				break;
-			case 2:
-				Xoa();
-				break;
-			case 3:
-				Sua();
-				break;
-			case 4:
-				timKiem();
-				break;
-			case 5:
-				capNhat();
-				break;
-			case 6:
-				hienThiDanhSach();
-				break;
-			default:
-				System.out.println("Lua chon khong hop le.");
-				break;
-		}
-	}
 }

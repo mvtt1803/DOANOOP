@@ -3,7 +3,7 @@ package DOANOOP;
 import java.io.*;
 
 public class TT extends KH {
-    private float heSoThuong = 0.08f;
+    private float heSoThuong = 0.01f;
     
 	public TT() {
 		super();
@@ -24,14 +24,6 @@ public class TT extends KH {
 
     public void setHeSoThuong(float heSoThuong) {
         this.heSoThuong = heSoThuong;
-    }
-
-    @Override
-    public void output() {
-        super.output();
-        if (getLoai().equalsIgnoreCase("TT")) {
-            System.out.println("Luong thang: " + tinhLuong());
-        }
     }
     
     @Override
@@ -57,10 +49,5 @@ public class TT extends KH {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public long tinhLuong() {
-        throw new UnsupportedOperationException("Unimplemented method 'tinhLuong'");
     }
 }

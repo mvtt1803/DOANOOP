@@ -3,7 +3,7 @@ package DOANOOP;
 import java.io.*;
 
 public class VIP extends KH {
-    private float heSoThuong = 0.08f;
+    private float heSoThuong = 0.03f;
     
 	public VIP() {
 		super();
@@ -24,14 +24,6 @@ public class VIP extends KH {
 
     public void setHeSoThuong(float heSoThuong) {
         this.heSoThuong = heSoThuong;
-    }
-
-    @Override
-    public void output() {
-        super.output();
-        if (getLoai().equalsIgnoreCase("VIP")) {
-            System.out.println("Luong thang: " + tinhLuong());
-        }
     }
     
     @Override
@@ -57,10 +49,5 @@ public class VIP extends KH {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public long tinhLuong() {
-        throw new UnsupportedOperationException("Unimplemented method 'tinhLuong'");
     }
 }

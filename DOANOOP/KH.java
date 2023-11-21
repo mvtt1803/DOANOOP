@@ -112,8 +112,6 @@ public abstract class KH implements read {
 		this.GioiTinh = GioiTinh;
 	}
 	
-	public abstract long tinhLuong();
-	
 	public void input() {
         do {
             System.out.println("Nhap ma khach hang: ");
@@ -169,7 +167,7 @@ public abstract class KH implements read {
         System.out.println("So dien thoai: " + getSDT());
         System.out.println("Dia chi: " + getDiaChi());
         System.out.println("Gioi tinh: " + (getGioiTinh() ? "Nam" : "Nu"));
-		System.out.println("Chuc vu: " + (getLoai() != null ? getLoai() : "Chua xac dinh"));
+		System.out.println("Loai: " + (getLoai() != null ? getLoai() : "Chua xac dinh"));
     }
 }
 	
