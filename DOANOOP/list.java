@@ -104,26 +104,6 @@ public class list implements function, read {
     }
 
     @Override
-    public void capNhat() {
-        System.out.println("Nhap ma khach hang can cap nhat: ");
-        String maKH = sc.nextLine();
-
-        for (KH kh : danhSachKhachHang) {
-            if (kh != null && kh.getMaKH().equals(maKH)) {
-                File dataFolder = new File("data");
-                if (!dataFolder.exists()) {
-                    dataFolder.mkdirs(); 
-                }
-                kh.ghiFile("data/" + maKH + ".dat");
-                System.out.println("Cap nhat khach hang thanh cong!");
-                return;
-            }
-        }
-
-        System.out.println("Khong tim thay khach hang cung ma.");
-    }
-
-    @Override
     public void hienThiDanhSach() {
         for (KH kh : danhSachKhachHang) {
             if (kh != null) {
@@ -173,7 +153,6 @@ public class list implements function, read {
         dsKhachHang.Sua();
         dsKhachHang.hienThiDanhSach();
         dsKhachHang.timKiem();
-        dsKhachHang.capNhat();
         
         dsKhachHang.ghiFile("danhsachkhachhang.text");
     }

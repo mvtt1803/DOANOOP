@@ -29,10 +29,10 @@ public class TT extends KH {
     @Override
     public void docFile(String tenFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
-            String chucVu = br.readLine();
+            String Loai = br.readLine();
             String maKH = br.readLine();
 
-            this.setLoai(chucVu);
+            this.setLoai(Loai);
             this.setMaKH(maKH);
 
         } catch (IOException e) {
