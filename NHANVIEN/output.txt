@@ -1,0 +1,46 @@
+5
+NV001
+Nguyen Van A
+123456789
+123 Main Street, City
+Nam
+01-01-1990
+01-01-2022
+Quan ly
+20
+NV005
+Thao Uyen 
+0123456789
+56 Hai Ba Trung
+Nu
+30-11-2004
+23-06-2021
+Ban hang
+27
+NV003
+Le Van C
+111222333
+789 Third Street, Village
+Nam
+03-03-2000
+03-03-2022
+Thu ngan
+22
+NV004
+Thanh Thao
+0936241562
+12 Nguyen trai
+Nu
+19-02-2004
+12-05-0021
+Ban hang
+28
+NV002
+Gia Bao
+0124578963
+47 Le Loi
+Nam
+25-04-2003
+28-12-2021
+Ban hang
+27
