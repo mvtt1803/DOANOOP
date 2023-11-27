@@ -1,4 +1,4 @@
-package DOANOOP.NHANVIEN;
+package DOANOOP;
 
 import java.util.Scanner;
 import java.io.*;
@@ -120,13 +120,12 @@ public class DS_NHANVIEN implements CHUCNANG, DOCGHIFILE {
                 System.out.println("Ten nhan vien: " + nv.getTenNhanVien());
                 System.out.println("So dien thoai: " + nv.getSDT());
                 System.out.println("Dia chi: " + nv.getDiaChi());
-                System.out.println("Gioi tinh: " + (nv.getGioiTinh() ? "Nam" : "Nữ"));
+                System.out.println("Gioi tinh: " + (nv.getGioiTinh() ? "Nam" : "Nu"));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 System.out.println("Ngay sinh: " + dateFormat.format(nv.getNgaySinh()));
                 System.out.println("Ngay vao lam: " + dateFormat.format(nv.getNgayVaoLam()));
                 System.out.println("Chuc vu: " + nv.getChucVu());
 
-                // In thêm thông tin chức vụ cụ thể nếu cần
                 if (nv instanceof QUANLY) {
                     QUANLY quanLy = (QUANLY) nv;
                     System.out.println("Ngay cong: " + quanLy.getNgayCong());
@@ -146,6 +145,38 @@ public class DS_NHANVIEN implements CHUCNANG, DOCGHIFILE {
                 System.out.println("Nhan vien tai vi tri " + i + " chua duoc khoi tao.");
             }
         }
+    }
+    
+    public void thongKe() {
+    	int nam = 0, nu = 0, qly = 0, bhg = 0, tng = 0;
+    	long maxluong = 0, minluong = 999999999;
+    	int indexmaxluong = -1, indexminluong = -1;
+    	for (int i = 0; i < soLuongNhanVien; i++) {
+    		NHANVIEN nv = danhSachNhanVien[i];
+    		
+    		// thong ke gioi tinh
+    		if (nv.getGioiTinh())	nam ++;
+    		else nu ++;
+
+    		// thong ke chuc bvu
+    		if (nv instanceof QUANLY) qly ++;
+    		else if (nv instanceof THUNGAN) tng++;
+    		else bhg++;
+    		
+    		// thong ke luong cao nhat, thap nhat
+    		if (maxluong < nv.tinhLuong()) {
+    			maxluong = nv.tinhLuong();
+    			indexmaxluong = i;
+    		}
+    		if (minluong > nv.tinhLuong()) {
+    			minluong = nv.tinhLuong();
+    			indexminluong = i;
+    		}
+    	}
+    	System.out.print("Co " + nam + " nhan vien nam, " + nu + " nhan vien nu.\n");
+    	System.out.print("Nhan vien luong cao nhat: " + danhSachNhanVien[indexmaxluong].getTenNhanVien() + " " + maxluong + "\n");
+    	System.out.print("Nhan vien luong thap nhat: " + danhSachNhanVien[indexminluong].getTenNhanVien() + " " + minluong + "\n");
+    	System.out.print("Co " + qly + " nhan vien quan ly, " + bhg + " nhan vien ban hang, " + tng + " nhan vien thu ngan.\n");
     }
     
     @Override
@@ -214,7 +245,7 @@ public class DS_NHANVIEN implements CHUCNANG, DOCGHIFILE {
                     bw.write(nv.getTenNhanVien() + "\n");
                     bw.write(nv.getSDT() + "\n");
                     bw.write(nv.getDiaChi() + "\n");
-                    bw.write(nv.getGioiTinh() ? "Nam" : "Nu" + "\n");
+                    bw.write((nv.getGioiTinh() ? "Nam" : "Nu") + "\n");
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     bw.write(dateFormat.format(nv.getNgaySinh()) + "\n");
                     bw.write(dateFormat.format(nv.getNgayVaoLam()) + "\n");
@@ -223,17 +254,21 @@ public class DS_NHANVIEN implements CHUCNANG, DOCGHIFILE {
                     if (nv instanceof QUANLY) {
                         QUANLY ql = (QUANLY) nv;
                         bw.write(String.valueOf(ql.getNgayCong()) + "\n");
+                        bw.write(Integer.toString((int)ql.tinhLuong()) + "\n");
                     }
                     
                     if (nv instanceof BANHANG) {
                         BANHANG bh = (BANHANG) nv;
                         bw.write(String.valueOf(bh.getNgayCong()) + "\n");
+                        bw.write(Integer.toString((int)bh.tinhLuong()) + "\n");
                     }
                     
                     if (nv instanceof THUNGAN) {
                         THUNGAN tn = (THUNGAN) nv;
                         bw.write(String.valueOf(tn.getNgayCong()) + "\n");
+                        bw.write(Integer.toString((int)tn.tinhLuong()) + "\n");
                     }
+                    
                 }
             }
             soLuongNhanVien++;
