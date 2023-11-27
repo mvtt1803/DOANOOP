@@ -3,11 +3,11 @@ package DOANOOP.KHACHHANG;
 import java.util.Scanner;
 
 public class menuKH {
-    private list dsKhachHang;
+    private DSKHACHHANG dsKhachHang;
     private Scanner scanner;
 
     public menuKH() {
-        dsKhachHang = new list();
+        dsKhachHang = new DSKHACHHANG();
         scanner = new Scanner(System.in);
     }
 

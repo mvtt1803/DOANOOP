@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public abstract class KHACHHANG implements read {
+public abstract class KHACHHANG implements DOCGHIFILE {
 	private String Loai, maKH, tenKH, SDT, DiaChi;
 	private Boolean GioiTinh;
 	Scanner sc = new Scanner(System.in);
