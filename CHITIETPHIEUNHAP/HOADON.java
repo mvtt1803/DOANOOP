@@ -16,6 +16,8 @@ public class HOADON {
     
     private NHANVIEN NHANVIEN;
     private KHACHHANG KHACHHANG;
+    private KHACHHANG VIP;
+    private KHACHHANG THANTHIET;
     private Date ngayBan;
     private CHITIETHD sp; 
     private CHITIETHD[] hd;
@@ -68,6 +70,8 @@ public class HOADON {
     public void addSanPham(CHITIETHD HD) {
         hd[soLuongSP] = HD;
         soLuongSP++;
+        VIP.tangSoHoaDon();
+        THANTHIET.tangSoHoaDon();
     }
     public void displayHoaDon() {
         System.out.println("Hóa đơn mua hàng:");
@@ -87,4 +91,3 @@ public class HOADON {
         sp.input();
         }
 }
- 
